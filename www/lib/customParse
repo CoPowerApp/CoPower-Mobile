@@ -1,0 +1,13 @@
+Parse.initialize("1e7weWiU3snwOoff1Lx9cEiztHxn844QSiW9B03W", "bmxKUUJpmX4MppY9LvQEYlGMuivzDsKiI1aZByX7");
+var store = Parse.Object.extend("Store");
+var query = new Parse.Query(store);
+Parse.User.logIn("danman113", "hackucsc", {
+  success: function(user) {
+    // Do stuff after successful login.
+    console.log("User",user);
+  },
+  error: function(user, error) {
+    // The login failed. Check error to see why.
+    console.log("error");
+  }
+});
