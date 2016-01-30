@@ -1,0 +1,12 @@
+<ion-view view-title="">
+  <ion-content>
+    <h1>Welcome to {{store}}</h1>
+    <div ng-if="user">
+    	<h2>Welcome {{user.toJSON().username}}</h2>
+    	<p>{{user | json}}</p>
+    </div>
+    <div ng-if="!user">
+    	<h2>You are not logged in :C</h2>
+    </div>
+  </ion-content>
+</ion-view>

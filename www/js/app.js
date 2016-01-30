@@ -1,11 +1,5 @@
-// Ionic Starter App
 
-// angular.module is a global place for creating, registering and retrieving Angular modules
-// 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
-// the 2nd parameter is an array of 'requires'
-// 'starter.controllers' is found in controllers.js
-var app = angular.module('starter', ['ionic', 'starter.controllers','ngCordova'])
-
+var app = angular.module('coPower', ['ionic', 'coPower.controllers','ngCordova'])
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
     // Hide the accessory bar by default (remove this to show the accessory bar above the keyboard
@@ -25,7 +19,7 @@ var app = angular.module('starter', ['ionic', 'starter.controllers','ngCordova']
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
-    .state('app', {
+  .state('app', {
     url: '/app',
     abstract: true,
     templateUrl: 'templates/menu.html',
@@ -49,27 +43,35 @@ var app = angular.module('starter', ['ionic', 'starter.controllers','ngCordova']
         }
       }
     })
-    .state('app.playlists', {
-      url: '/playlists',
+    .state('app.chats', {
+      url: '/chats',
       views: {
         'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
+          templateUrl: 'templates/chats.html',
+          controller: 'chats'
         }
       }
     })
-
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
+    .state('app.login', {
+      url: '/login',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/login.html',
+          controller: 'login'
+        }
       }
-    }
-  });
+    })
+    .state('app.home', {
+      url: '/',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/home.html',
+          controller: 'home'
+        }
+      }
+    });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/playlists');
+  $urlRouterProvider.otherwise('/app/');
 }).config(function () {
   Parse.initialize("1e7weWiU3snwOoff1Lx9cEiztHxn844QSiW9B03W", "bmxKUUJpmX4MppY9LvQEYlGMuivzDsKiI1aZByX7");
 });

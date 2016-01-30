@@ -1,12 +1,8 @@
-<ion-modal-view>
-  <ion-header-bar>
-    <h1 class="title">Login</h1>
-    <div class="buttons">
-      <button class="button button-clear" ng-click="closeLogin()">Close</button>
-    </div>
-  </ion-header-bar>
+<ion-view view-title="">
   <ion-content>
-    <form ng-submit="doLogin()">
+  <div ng-if="!user">
+  	<h1>Login to {{store}}</h1>
+    <form ng-submit="login()">
       <div class="list">
         <label class="item item-input">
           <span class="input-label">Username</span>
@@ -21,5 +17,9 @@
         </label>
       </div>
     </form>
+  </div>
+  <div ng-if="user">
+  	<h1>You're already logged in!</h1>
+  </div>
   </ion-content>
-</ion-modal-view>
+</ion-view>
