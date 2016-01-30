@@ -69,6 +69,15 @@ var app = angular.module('coPower', ['ionic', 'coPower.controllers','ngCordova']
           controller: 'home'
         }
       }
+    })
+    .state('app.register', {
+      url: '/register',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/register.html',
+          controller: 'register'
+        }
+      }
     });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/');

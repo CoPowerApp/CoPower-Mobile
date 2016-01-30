@@ -6,7 +6,13 @@
     	<p>{{user | json}}</p>
     </div>
     <div ng-if="!user">
-    	<h2>You are not logged in :C</h2>
+    	<h2>You are not logged!</h2>
+        <div class="item">
+            <a class="button button-block button-positive" ng-href="#/app/login">Log in</a>
+        </div>
+        <div class="item">
+            <a class="button button-block button-positive" ng-href="#/app/register">Register</a>
+        </div>
     </div>
   </ion-content>
 </ion-view>

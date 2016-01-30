@@ -1,0 +1,33 @@
+<ion-view view-title="Register">
+  <ion-content>
+  <div ng-if="!user">
+  	<h1>Sign up to {{store}}</h1>
+    <form ng-submit="registerUser()">
+      <div class="list">
+        <label class="item item-input">
+          <span class="input-label">Username</span>
+          <input type="text"  ng-minlength="5" ng-model="newUserData.username">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Password</span>
+          <input type="password"  ng-minlength="7" ng-model="newUserData.password">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Re-type Password</span>
+          <input type="password" ng-minlength="7" ng-model="newUserData.passwordAgain">
+        </label>
+        <label class="item item-input">
+          <span class="input-label">Email</span>
+          <input type="email"  ng-minlength="4" ng-model="newUserData.email">
+        </label>
+        <label class="item">
+          <button class="button button-block button-positive" type="submit">Sign up!</button>
+        </label>
+      </div>
+    </form>
+  </div>
+  <div ng-if="user">
+  	<h1>You're already logged in!</h1>
+  </div>
+  </ion-content>
+</ion-view>

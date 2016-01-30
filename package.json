@@ -1,7 +1,7 @@
 {
   "name": "coPower",
   "version": "1.1.1",
-  "description": "hack: An Ionic project",
+  "description": "coPower",
   "dependencies": {
     "gulp": "^3.5.6",
     "gulp-sass": "^2.0.4",
