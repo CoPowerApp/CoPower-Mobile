@@ -30,7 +30,8 @@ var app = angular.module('coPower', ['ionic', 'coPower.controllers','ngCordova']
     url: '/search',
     views: {
       'menuContent': {
-        templateUrl: 'templates/search.html'
+        templateUrl: 'templates/search.html',
+        controller:'search'
       }
     }
   })
@@ -67,6 +68,33 @@ var app = angular.module('coPower', ['ionic', 'coPower.controllers','ngCordova']
         'menuContent': {
           templateUrl: 'templates/home.html',
           controller: 'home'
+        }
+      }
+    })
+    .state('app.selectStore', {
+      url: '/selectStore',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/selectStore.html',
+          controller: 'selectStore'
+        }
+      }
+    })
+    .state('app.conflicts', {
+      url: '/conflicts',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/conflicts.html',
+          controller: 'conflicts'
+        }
+      }
+    })
+    .state('app.conflictsNew', {
+      url: '/conflicts/new',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/conflictsNew.html',
+          controller: 'conflicts'
         }
       }
     })

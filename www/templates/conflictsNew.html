@@ -1,0 +1,14 @@
+<ion-view view-title="Conflict View">
+  <ion-content>
+    <div ng-if="user">
+        <button ng-click="logConflict()">Log</button>
+    	<p>{{user | json}}</p>
+        <div ng-if="conflict">
+            {{conflict.toJSON().description}}
+        </div>
+    </div>
+    <div ng-if="!user">
+    	<div ng-include="'templates/404.html'"></div>
+    </div>
+  </ion-content>
+</ion-view>

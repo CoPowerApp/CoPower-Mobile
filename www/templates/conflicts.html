@@ -1,0 +1,19 @@
+<ion-view view-title="Your Conflicts">
+  <ion-content>
+    <h1></h1>
+    <div ng-if="user">
+    	<div class="item">
+            <a class="button button-block button-positive" ng-href="#/app/conflict/new">Submit a conflict</a>
+        </div>
+    	<ion-list>
+			<ion-item click-for-options ng-repeat="item in conflicts">{{item.toJSON().description}}
+				<ion-option-button style="font-size: small;padding-right: 2px;padding-left: 7px;" class="button-assertive" ng-click="">Delete</ion-option-button>
+				<ion-option-button style="padding-left: 30px;padding-right: 30px;font-size: large;" class="button-positive" ng-click="setConflict(item)">View</ion-option-button>
+			</ion-item>
+		</ion-list>
+    </div>
+    <div ng-if="!user">
+    	<div ng-include="'templates/404.html'"></div>
+    </div>
+  </ion-content>
+</ion-view>

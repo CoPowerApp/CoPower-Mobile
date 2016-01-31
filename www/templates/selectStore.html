@@ -1,0 +1,37 @@
+<ion-view view-title="Select A Store">
+  <ion-content>
+    <h1>Search</h1>    
+    <div ng-if="user">
+    	<form ng-submit="searchForStore()">
+	      <div class="list">
+	        <label class="item item-input item-select">
+	          <span class="input-label">Search by City</span>
+	          <select style="right:100px !important" ng-change="logQuery()" ng-options = "name for (name,value) in map" ng-model = "query.state">
+		    	<option value="">Select State</option>
+			    </select>
+			    <span class="ng-hide ion-arrow-down-b"></span>
+			    <select ng-change="getStoresByQuery()" ng-options = "name for (name,value) in query.state" ng-model = "query.city">
+			    	<option value="">Select City</option>
+			    </select>
+	        </label>
+	        <label class="item item-input item-select">
+	          <span class="input-label">Find near you</span>
+	          <select name="" id="" ng-options="o as o for o in maxOptions" ng-change="getStoresNearMe()" ng-model="query.maxDistance"><option value="">Max Distance</option></select>
+	        </label>
+	      </div>
+	    </form>
+	    <ion-list>
+			<ion-item click-for-options ng-repeat="item in stores"><span ng-show="user.toJSON().store.address==item.address">&#9989;</span> {{item.address}}
+				<ion-option-button class="button-positive" ng-click="addStoreToUser(item)">Select</ion-option-button>
+			</ion-item>
+		  
+		</ion-list>
+		<div ng-show="!stores && query.maxDistance">
+			<h1>Loading stores...</h1>
+		</div>
+    </div>
+    <div ng-if="!user">
+    	<div ng-include="'templates/404.html'"></div>
+    </div>
+  </ion-content>
+</ion-view>
