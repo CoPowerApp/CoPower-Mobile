@@ -5,7 +5,7 @@
           <div class="list">
             <label class="item item-input item-select">
               <span class="input-label">Type of conflict <span ng-show="loading" style="left: calc(50% - 30px);position: absolute;font-size:small;">Loading...</spam></span>
-                <select style="padding-left: 1px;" ng-change="updateType()" ng-options = "o as o for o in conflictTypes" ng-model = "conflictSearch.type">
+                <select style="padding-left: 1px;padding-right: 25px;" ng-change="updateType()" ng-options = "o as o for o in conflictTypes" ng-model = "conflictSearch.type">
                     <option value="">Conflict</option>
                 </select>
             </label>

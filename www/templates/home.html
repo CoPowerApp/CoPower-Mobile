@@ -1,14 +1,16 @@
 <ion-view view-title="">
   <ion-content>
-    <h1>Welcome to {{store}}</h1>
     <div ng-if="user">
-    	<h2>Welcome {{user.toJSON().username}}</h2>
+        <h1>Welcome to {{store}}</h1>
         <p>Need advice on handling a workplace issue? We’re here to help! And so are you co-workers!</p>
         <p>Connect with employees from nearby stores that have similar issues in the workplace, or even connect to a trained peer advocate to help you try to resolve it!</p>
-
+        <div class="item">
+            <a class="button button-block button-positive" ng-href="#/app/conflictsAdd">Submit a conflict</a>
+        </div>
     </div>
     <div ng-if="!user">
-    	<h2>You are not logged in!</h2>
+    	<h2>Please log in!</h2>
+        <h4>Or register for an account</h4>
         <div class="item">
             <a class="button button-block button-positive" ng-href="#/app/login">Log in</a>
         </div>
