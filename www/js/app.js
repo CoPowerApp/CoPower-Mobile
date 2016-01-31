@@ -53,6 +53,15 @@ var app = angular.module('coPower', ['ionic', 'coPower.controllers','ngCordova']
         }
       }
     })
+    .state('app.chat', {
+      url: '/chat',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/chat.html',
+          controller: 'chat'
+        }
+      }
+    })
     .state('app.login', {
       url: '/login',
       views: {
@@ -89,12 +98,21 @@ var app = angular.module('coPower', ['ionic', 'coPower.controllers','ngCordova']
         }
       }
     })
+    .state('app.conflictsAdd', {
+      url: '/conflictsAdd',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/conflictsAdd.html',
+          controller: 'conflictsAdd'
+        }
+      }
+    })
     .state('app.conflictsNew', {
       url: '/conflicts/new',
       views: {
         'menuContent': {
           templateUrl: 'templates/conflictsNew.html',
-          controller: 'conflicts'
+          controller: 'conflictsNew'
         }
       }
     })

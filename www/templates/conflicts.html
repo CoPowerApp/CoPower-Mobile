@@ -3,8 +3,11 @@
     <h1></h1>
     <div ng-if="user">
     	<div class="item">
-            <a class="button button-block button-positive" ng-href="#/app/conflict/new">Submit a conflict</a>
+            <a class="button button-block button-positive" ng-href="#/app/conflictsAdd">Submit a conflict</a>
         </div>
+        <label class="item" ng-show="conflicts.length <= 0">
+	          <span class="input-label" style="font-weight: bold;position: relative;left: calc( 50% - 45px);">No Conflicts</span>
+	        </label>
     	<ion-list>
 			<ion-item click-for-options ng-repeat="item in conflicts">{{item.toJSON().description}}
 				<ion-option-button style="font-size: small;padding-right: 2px;padding-left: 7px;" class="button-assertive" ng-click="">Delete</ion-option-button>

@@ -1,0 +1,18 @@
+<ion-view view-title="Discuss with ">
+  <ion-content>
+    <div ng-if="user && chat">
+    	<ion-list id="Fix" style="">
+            <ion-item click-for-options ng-repeat="item in chat.messages">
+                <span ng-bind-html="item.toJSON().data"></span>
+                <ion-option-button class="button-positive">{{item.toJSON().createdAt | date}}</ion-option-button>
+            </ion-item>
+        </ion-list>
+        <form ng-submit="sendMessage()">
+            <label class="item item-input" style = "">
+                <textarea ng-minlength = "1" style="width:80%;" ng-model="message.data" placeholder="Discuss..."></textarea>
+                <button class="button" style="width:20%;">Send</button>
+            </label>
+        </form>
+    </div>
+  </ion-content>
+</ion-view>

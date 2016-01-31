@@ -1,22 +1,29 @@
 <ion-view view-title="Select A Store">
-  <ion-content>
-    <h1>Search</h1>    
+  <ion-content>  
     <div ng-if="user">
     	<form ng-submit="searchForStore()">
 	      <div class="list">
 	        <label class="item item-input item-select">
-	          <span class="input-label">Search by City</span>
-	          <select style="right:100px !important" ng-change="logQuery()" ng-options = "name for (name,value) in map" ng-model = "query.state">
+	          <span class="input-label">Search by State</span>
+	          <select style="" ng-change="logQuery()" ng-options = "name for (name,value) in map" ng-model = "query.state">
 		    	<option value="">Select State</option>
-			    </select>
-			    <span class="ng-hide ion-arrow-down-b"></span>
-			    <select ng-change="getStoresByQuery()" ng-options = "name for (name,value) in query.state" ng-model = "query.city">
-			    	<option value="">Select City</option>
-			    </select>
+			  </select>
+	        </label>
+	        <label class="item item-input item-select" ng-show="query.state">
+	          <span class="input-label">Search by City</span>
+	          <select ng-change="getStoresByQuery()" ng-options = "name for (name,value) in query.state" ng-model = "query.city">
+			  	<option value="">Select City</option>
+			  </select>
+	        </label>
+	        <label class="item item-input">
+	          <span class="input-label" style="font-weight: bold;position: relative;left: calc( 50% - 20px);">OR</span>
 	        </label>
 	        <label class="item item-input item-select">
 	          <span class="input-label">Find near you</span>
 	          <select name="" id="" ng-options="o as o for o in maxOptions" ng-change="getStoresNearMe()" ng-model="query.maxDistance"><option value="">Max Distance</option></select>
+	        </label>
+	        <label class="item" ng-show="stores.length>0">
+	          <span class="input-label" style="font-weight: bold;position: relative;left: calc( 50% - 30px);">RESULTS</span>
 	        </label>
 	      </div>
 	    </form>

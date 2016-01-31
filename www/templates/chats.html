@@ -1,5 +1,14 @@
 <ion-view view-title="Conversations">
   <ion-content>
-    <h1>{{title}}</h1>
+    <div ng-if="user">
+    	<ion-list>
+            <ion-item click-for-options ng-repeat="item in chats">
+                <span ng-show="item.messages[0].get('sender').get('username')!=user.get('username')">{{item.messages[0].get('sender').get('username')}}</span>
+                <span ng-show="item.messages[0].get('recipient').get('username')!=user.get('username')">{{item.messages[0].get('recipient').get('username')}}</span>
+                <span style="right: 9px;position: absolute;color: rgba(125, 125, 125, 0.67);font-size: smaller;">{{item.messages[item.messages.length-1].get('data')}}</span>
+                <ion-option-button class="button-positive" ng-click="selectChat(item)">Chat</ion-option-button>
+            </ion-item>
+        </ion-list>
+    </div>
   </ion-content>
 </ion-view>

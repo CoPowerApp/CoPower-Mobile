@@ -1,10 +1,23 @@
-<ion-view view-title="Conflict View">
+<ion-view view-title="{{title}}">
   <ion-content>
     <div ng-if="user">
-        <button ng-click="logConflict()">Log</button>
-    	<p>{{user | json}}</p>
         <div ng-if="conflict">
-            {{conflict.toJSON().description}}
+            <label class="item">
+              <span class="input-label" style="font-weight: bold;position: relative;left: calc( 50% - 45px);">Description</span>
+            </label>
+            <label class="item item-input">
+              <span class="input-label">{{conflict.toJSON().description}}</span>
+            </label>
+            <label class="item" ng-show="locals">
+              <span class="input-label" style="font-weight: bold;position: relative;left: calc( 50% - 105px);">Users with similar conflicts</span>
+            </label>
+            <ion-list>
+                <ion-item click-for-options ng-repeat="item in locals">
+                    <span>{{item.user.toJSON().username}}</span>
+                    <span style="right: 9px;position: absolute;color: rgba(125, 125, 125, 0.67);font-size: smaller;">{{item.store.toJSON().city}}</span>
+                    <ion-option-button class="button-positive" ng-click="startConversation(item)">Chat</ion-option-button>
+                </ion-item>
+            </ion-list>
         </div>
     </div>
     <div ng-if="!user">

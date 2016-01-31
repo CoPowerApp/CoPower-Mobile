@@ -1,0 +1,28 @@
+<ion-view view-title="New Conflict">
+  <ion-content>
+    <h1>Submit a conflict</h1>
+    <div ng-if="user && user.get('store')">
+		<form ng-submit="submitConflict()">
+	      <div class="list">
+	        <label class="item item-input item-select">
+	          <span class="input-label">Type of conflict</span>
+			    <select ng-change="" ng-options = "o as o for o in conflictTypes" ng-model = "conflictType.type">
+			    	<option value="">Conflict</option>
+			    </select>
+	        </label>
+	        <label class="item item-input">
+	          <textarea ng-minlength = "4" ng-model="conflictType.description" placeholder="Description of conflict..."></textarea>
+	        </label>
+	        <label class="item">
+	        	<div class="item">
+		            <button class="button button-block button-positive" ng-click="">Submit Conflict</button>
+		        </div>
+	        </label>
+	      </div>
+	    </form>
+    </div>
+    <div ng-if="!user">
+    	<div ng-include="'templates/404.html'"></div>
+    </div>
+  </ion-content>
+</ion-view>

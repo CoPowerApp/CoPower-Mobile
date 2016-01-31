@@ -1,11 +1,20 @@
 <ion-view view-title="Search">
   <ion-content>
-    <div id="map" data-tap-disabled="true"><h1>Loading Map...</h1></div> 
-    <h1>Search</h1>
     <div ng-if="user">
+        <form ng-submit="filterView()">
+          <div class="list">
+            <label class="item item-input item-select">
+              <span class="input-label">Type of conflict <span ng-show="loading" style="left: calc(50% - 30px);position: absolute;font-size:small;">Loading...</spam></span>
+                <select style="padding-left: 1px;" ng-change="updateType()" ng-options = "o as o for o in conflictTypes" ng-model = "conflictSearch.type">
+                    <option value="">Conflict</option>
+                </select>
+            </label>
+          </div>
+        </form>
     </div>
     <div ng-if="!user">
-    	<div ng-include="'templates/404.html'"></div>
+        <div ng-include="'templates/404.html'"></div>
     </div>
+    <div id="map" data-tap-disabled="true"><h1>Loading Map...</h1></div> 
   </ion-content>
 </ion-view>
