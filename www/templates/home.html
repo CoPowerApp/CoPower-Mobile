@@ -3,10 +3,12 @@
     <h1>Welcome to {{store}}</h1>
     <div ng-if="user">
     	<h2>Welcome {{user.toJSON().username}}</h2>
-    	<p>{{user | json}}</p>
+        <p>Need advice on handling a workplace issue? We’re here to help! And so are you co-workers!</p>
+        <p>Connect with employees from nearby stores that have similar issues in the workplace, or even connect to a trained peer advocate to help you try to resolve it!</p>
+
     </div>
     <div ng-if="!user">
-    	<h2>You are not logged!</h2>
+    	<h2>You are not logged in!</h2>
         <div class="item">
             <a class="button button-block button-positive" ng-href="#/app/login">Log in</a>
         </div>

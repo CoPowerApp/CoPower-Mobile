@@ -190,7 +190,7 @@ angular.module('coPower.controllers', [])
       if(!data){
         return false;
       }
-      data = data.match(/.{1,80}/g).join(" <br/> ");
+      data = data.match(/.{1,40}/g).join(" <br/> ");
       console.log(data,$scope.chat);
       message.set("data", data);
       message.set("sender", $scope.user);
@@ -304,7 +304,7 @@ angular.module('coPower.controllers', [])
         console.log("CONV FOUND");
         console.log(results);
         var str = $scope.user.get("username") +" wants to discuss " + $scope.conflictTypes[$scope.conflict.get("type")]+". Description: " + $scope.conflict.get("description");
-        str = str.match(/.{1,80}/g).join(" <br/> ");
+        str = str.match(/.{1,40}/g).join(" <br/> ");
         console.log(results[0]);
         $scope.sendUsingConvo(results[0],str,$scope.user,person.user);
         return false;
@@ -316,7 +316,7 @@ angular.module('coPower.controllers', [])
     }).then(function(conv){
       if(conv){
         var str = $scope.user.get("username") +" wants to discuss " + $scope.conflictTypes[$scope.conflict.get("type")]+". Description: " + $scope.conflict.get("description");
-        str = str.match(/.{1,80}/g).join(" <br/> ");
+        str = str.match(/.{1,40}/g).join(" <br/> ");
         console.log(conv);
         $scope.sendUsingConvo(conv,str,$scope.user,person.user);
         
@@ -459,7 +459,7 @@ angular.module('coPower.controllers', [])
                         buttons.classList.remove('invisible');
                         content.style[ionic.CSS.TRANSFORM] = 'translate3d(-' + buttonsWidth + 'px, 0, 0)';
                     }
-                });     
+                }); 
 
             }, element);
         }
@@ -498,6 +498,7 @@ angular.module('coPower.controllers', [])
       }
       console.log(cityStuff);
       $scope.stores = cityStuff;
+      $scope.$apply();
     }
   };
   $scope.getStoresNearMe = function(){

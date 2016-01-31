@@ -2,14 +2,15 @@
   <ion-content>
     <div ng-if="user && chat">
     	<ion-list id="Fix" style="">
-            <ion-item click-for-options ng-repeat="item in chat.messages">
+        <!-- (item.get('sender') == user)?20%:0px -->
+            <ion-item click-for-options ng-repeat="item in chat.messages" style="width:90%;" ng-class="(item.get('sender').id == user.id)?'left':'right'">
                 <span ng-bind-html="item.toJSON().data"></span>
                 <ion-option-button class="button-positive">{{item.toJSON().createdAt | date}}</ion-option-button>
             </ion-item>
         </ion-list>
         <form ng-submit="sendMessage()">
             <label class="item item-input" style = "">
-                <textarea ng-minlength = "1" style="width:80%;" ng-model="message.data" placeholder="Discuss..."></textarea>
+                <input type="text" ng-minlength = "1" style="width:80%;" ng-model="message.data" placeholder="Discuss..."/>
                 <button class="button" style="width:20%;">Send</button>
             </label>
         </form>
